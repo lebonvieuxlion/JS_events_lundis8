@@ -1,8 +1,9 @@
 
-//Exo 1
+//------------------------------Exo 1----------------------------------------------------------------------
+
 var footer = document.querySelector("footer");
-console.log(footer);
 var numberOfClick = 1;
+
 var sayClick = function(){
 	console.log(`clique n°${numberOfClick}`)
 	numberOfClick++
@@ -11,8 +12,10 @@ var sayClick = function(){
 footer.addEventListener("click", sayClick);
 
 
-//Exo 2
-/*
+
+
+//------------------------------Exo 2----------------------------------------------------------------------
+
 var hamburgerMenu = document.getElementById("navbarHeader");
 hamburgerMenu.classList.remove("collapse");
 
@@ -21,12 +24,12 @@ var collapseHamburger = function(){
 };
 
 hamburgerMenu.addEventListener("click", collapseHamburger);
-*/
 
-//Exo 3
+
+
+//------------------------------Exo 3----------------------------------------------------------------------
 
 var firstBtnEdit = document.getElementsByClassName("btn btn-sm btn-outline-secondary")[0]
-console.log(firstBtnEdit)
 
 var changeColorBtn = function() {
 	this.style.color = "red"
@@ -34,7 +37,11 @@ var changeColorBtn = function() {
 
 firstBtnEdit.addEventListener("click", changeColorBtn)
 
-//Exo 4
+
+
+
+
+//------------------------------Exo 4----------------------------------------------------------------------
 var secondBtnEdit = document.getElementsByClassName("btn btn-sm btn-outline-secondary")[1]
 
 
@@ -49,7 +56,8 @@ var toggleBtnColor = function() {
 
 secondBtnEdit.addEventListener("click", toggleBtnColor);
 
-//Exo 5
+
+//------------------------------Exo 5----------------------------------------------------------------------
 
 var linkBootstrap = document.getElementsByTagName("link")[0];
 var header = document.getElementsByTagName("header")[0];
@@ -67,32 +75,39 @@ var toggleBootstrap = function() {
 header.addEventListener("dblclick", toggleBootstrap)
 
 
-//exo 6
+//------------------------------Exo 6----------------------------------------------------------------------
 
 var arrayViews = document.getElementsByClassName("btn btn-sm btn-success");
 var arrayCards = document.getElementsByClassName("col-md-4");
 var arrayImg = document.getElementsByClassName("card-img-top");
 var arrayParagraphs = document.getElementsByClassName("card-text");
 
-//firstView.addEventListener("mouseover", mouseOverView)
-
-
-
 var mouseOverView = function(){
 	for (let i = 0; i < arrayCards.length; i++) {
 
-		console.log(arrayViews[i])
-		console.log("ça marche")
+		if (arrayParagraphs[i].style.display === "none"){
 
-	arrayImg[i].style.width = "20%";
-	arrayImg[i].style.height = "20%";
-	arrayParagraphs[i].style.display = "none";
+		arrayImg[i].style.width = "";
+		arrayImg[i].style.height = "";
+		arrayParagraphs[i].style.display = "block";
+		}
+
+		else{
+
+		arrayImg[i].style.width = "20%";
+		arrayImg[i].style.height = "20%";
+		arrayParagraphs[i].style.display = "none";
+
+		}
 	}
 };
 
 
-arrayViews.forEach(function(element){
+Array.prototype.forEach.call(arrayViews, element => {
+
 	element.addEventListener("mouseover", mouseOverView)
-	console.log("ça marche")
+
 });
+
+//------------------------------Exo 7----------------------------------------------------------------------
 
